@@ -1,5 +1,7 @@
 package com.ksga.eventhub.model.dto.generation.response;
 
+import com.ksga.eventhub.model.dto.auth.response.AppUserResponse;
+import com.ksga.eventhub.model.entity.AppUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +21,5 @@ public class GenerationResponse {
     private boolean isCurrent;
     private Instant createdAt;
     private Instant updatedAt;
-    private UUID appUserId;
+    private AppUser appUser;
 }
