@@ -1,0 +1,6 @@
+DELETE FROM app_users WHERE email = 'endyong18@gmail.com'
+
+SELECT column_name, data_type
+FROM information_schema.columns
+WHERE table_name = 'app_users'
+ORDER BY ordinal_position;
