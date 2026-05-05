@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class WorkSpace {
+public class Workspace {
     private UUID workspaceId;
     private String name;
     private String description;
-    private boolean isPublic;
+    private Boolean isPublic;
     private Instant createdAt;
     private Instant updatedAt;
     private UUID createdBy;

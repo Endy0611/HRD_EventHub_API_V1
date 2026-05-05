@@ -1,5 +1,7 @@
 package com.ksga.eventhub.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ksga.eventhub.model.dto.auth.response.AppUserResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +21,7 @@ public class Generation {
     private boolean isCurrent;
     private Instant createdAt;
     private Instant updatedAt;
+    @JsonIgnore
     private UUID appUserId;
+    private AppUser appUser;
 }

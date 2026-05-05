@@ -15,7 +15,8 @@ public interface GenerationRepository {
             @Result(property = "generationId", column = "generation_id"),
             @Result(property = "updatedAt",    column = "updated_at"),
             @Result(property = "createdAt",    column = "created_at"),
-            @Result(property = "appUserId",    column = "app_user_id")
+            @Result(property = "appUser", column = "app_user_id",
+                    one = @One(select = "com.ksga.eventhub.repository.AppUserRepository.getUserById"))
     })
     @Select("SELECT * FROM generations WHERE generation_id = #{generationId}::uuid")
     Generation findById(UUID generationId);
@@ -32,7 +33,6 @@ public interface GenerationRepository {
     @Select("SELECT * FROM generations ORDER BY created_at ASC")
     List<Generation> findAll();
 
-    // ✅ No @ResultMap needed on non-SELECT methods
     @Insert("""
             INSERT INTO generations (generation_id, name, year, is_current, created_at, updated_at, app_user_id)
             VALUES (#{generationId}::uuid, #{name}, #{year}, #{isCurrent}, #{createdAt}, #{updatedAt}, #{appUserId}::uuid)
