@@ -458,3 +458,5 @@ INSERT INTO roles (role_name) VALUES
 
 ALTER TABLE app_users
     ADD COLUMN is_verified BOOLEAN NOT NULL DEFAULT false;
+
+ALTER TABLE generations ADD COLUMN updated_at TIMESTAMPTZ DEFAULT NOW();

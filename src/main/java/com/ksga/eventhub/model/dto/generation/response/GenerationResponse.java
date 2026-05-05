@@ -1,4 +1,4 @@
-package com.ksga.eventhub.model.entity;
+package com.ksga.eventhub.model.dto.generation.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Generation {
+public class GenerationResponse {
     private UUID generationId;
     private String name;
     private String year;

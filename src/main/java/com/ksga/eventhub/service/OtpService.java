@@ -4,9 +4,9 @@ package com.ksga.eventhub.service;
 public interface OtpService {
     String generateOtp();
 
-    void sendOtp(String email, String OTP, long ttl);
+    void sendOtp(String email, String otp);
 
-    boolean verifyOtp(String email, String OTP);
+    boolean verifyOtp(String email, String otp);
 
     boolean isOtpPresent(String email);
 

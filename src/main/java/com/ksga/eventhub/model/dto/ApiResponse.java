@@ -57,4 +57,16 @@ public class ApiResponse<T> {
                 .build();
         return ResponseEntity.status(status).body(response);
     }
+
+    public static <T> ResponseEntity<ApiResponse<T>> created(String message, T data) {
+        ApiResponse<T> response = ApiResponse.<T>builder()
+                .success(true)
+                .message(message)
+                .status(HttpStatus.CREATED)
+                .payload(data)
+                .timestamp(Instant.now())
+                .build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
 }
+

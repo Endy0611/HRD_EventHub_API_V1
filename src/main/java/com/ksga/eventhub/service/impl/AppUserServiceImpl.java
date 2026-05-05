@@ -49,9 +49,7 @@ public class AppUserServiceImpl implements AppUserService {
 
         AppUser appUser = appUserRepository.register(request);
 
-
-        String otp = otpService.generateOtp();
-        otpService.sendOtp(request.getEmail(), otp, 300); // 300 seconds = 5 minutes
+        getOtp(request.getEmail());
 
         return modelMapper.map(appUser, AppUserResponse.class);
     }
@@ -60,8 +58,7 @@ public class AppUserServiceImpl implements AppUserService {
     public boolean getOtp(String email) {
         try {
             String generatedOtp = otpService.generateOtp();
-            log.info("Generated OTP: {}", generatedOtp);
-            otpService.sendOtp(email, generatedOtp, 120);
+            otpService.sendOtp(email, generatedOtp);
             return true;
         } catch (Exception e) {
             log.error("Error while generating OTP: {}", e.getMessage());
