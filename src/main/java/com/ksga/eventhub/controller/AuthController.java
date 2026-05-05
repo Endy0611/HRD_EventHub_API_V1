@@ -74,8 +74,6 @@ public class AuthController {
     public ResponseEntity<ApiResponse<AppUserResponse>> register(@RequestBody @Valid AppUserRequest request){
         AppUserResponse appUserResponse = appUserService.register(request);
 
-        String email = request.getEmail();
-        appUserService.getOtp(email);
         ApiResponse<AppUserResponse> apiResponse = ApiResponse.<AppUserResponse>builder()
                 .success(true)
                 .message("User registered successfully! Please verify your email to complete the registration.")
