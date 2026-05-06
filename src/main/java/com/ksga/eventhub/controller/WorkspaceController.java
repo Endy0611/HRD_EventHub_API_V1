@@ -23,7 +23,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/workspaces")
 @RequiredArgsConstructor
 @SecurityRequirement(name = "bearerAuth")
-@Tag(name = "Workspace", description = "Workspace management APIs")
+//@Tag(name = "Workspace", description = "Workspace management APIs")
 public class WorkspaceController {
 
     private final WorkspaceService workspaceService;

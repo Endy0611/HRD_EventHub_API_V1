@@ -5,6 +5,7 @@ import com.ksga.eventhub.model.dto.generation.request.GenerationRequest;
 import com.ksga.eventhub.model.dto.generation.response.GenerationResponse;
 import com.ksga.eventhub.service.GenerationService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/generations")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class GenerationController {
 
     private final GenerationService generationService;
